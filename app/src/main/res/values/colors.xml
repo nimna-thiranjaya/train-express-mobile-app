@@ -11,4 +11,6 @@
     <color name="dark_blue">#1c3c84</color>
     <color name="maingreen">#3CA479</color>
     <color name="lavender">#8692f7</color>
+    <color name="primary_green">#157939</color>
+    <color name="lite_green">#90EE91</color>
 </resources>
