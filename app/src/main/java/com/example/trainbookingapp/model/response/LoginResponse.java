@@ -1,4 +1,4 @@
-package com.example.trainbookingapp.model;
+package com.example.trainbookingapp.model.response;
 
 import androidx.annotation.NonNull;
 

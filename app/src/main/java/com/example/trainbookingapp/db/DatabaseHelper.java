@@ -1,10 +1,11 @@
 package com.example.trainbookingapp.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.trainbookingapp.model.LoginResponse;
+import com.example.trainbookingapp.model.response.SignUpResponse;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "train__db";
@@ -26,6 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     + COLUMN_ROLE + "TEXT"
                     + COLUMN_NIC + "TEXT"
                     + ")";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -40,6 +42,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Drop older table if existed, and create a fresh table
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRAVELER);
         onCreate(db);
+    }
+
+    // Method to save traveler data to SQLite
+    public void saveTravelerData(String nic , String firstName, String lastName, String email, String role) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //remove all data from table before insert new data
+        db.delete(TABLE_TRAVELER, null, null);
+        db.close();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NIC, nic);
+        values.put(COLUMN_FIRST_NAME, firstName);
+        values.put(COLUMN_LAST_NAME, lastName);
+        values.put(COLUMN_EMAIL, email);
+        values.put(COLUMN_ROLE, role);
+
+        db.insert(TABLE_TRAVELER, null, values);
+        db.close();
     }
 
 }

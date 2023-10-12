@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.trainbookingapp.model.LoginResponse;
+import com.example.trainbookingapp.model.response.LoginResponse;
 
 public class TravelerDAO {
     private DatabaseHelper databaseHelper;

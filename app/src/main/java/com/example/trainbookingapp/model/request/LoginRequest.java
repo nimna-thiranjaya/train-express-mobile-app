@@ -1,4 +1,4 @@
-package com.example.trainbookingapp.model;
+package com.example.trainbookingapp.model.request;
 
 public class LoginRequest {
     private String email;

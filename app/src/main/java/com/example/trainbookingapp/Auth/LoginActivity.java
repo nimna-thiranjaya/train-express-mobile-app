@@ -2,7 +2,6 @@ package com.example.trainbookingapp.Auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,18 +9,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.trainbookingapp.MainActivity;
 import com.example.trainbookingapp.R;
-import com.example.trainbookingapp.db.DatabaseHelper;
 import com.example.trainbookingapp.db.TravelerDAO;
-import com.example.trainbookingapp.model.LoginRequest;
-import com.example.trainbookingapp.model.LoginResponse;
+import com.example.trainbookingapp.model.request.LoginRequest;
+import com.example.trainbookingapp.model.request.SignUpRequest;
+import com.example.trainbookingapp.model.response.ErrorResponse;
+import com.example.trainbookingapp.model.response.LoginResponse;
+import com.example.trainbookingapp.model.response.SignUpResponse;
+import com.example.trainbookingapp.model.response.StandardResponse;
+import com.example.trainbookingapp.model.response.UserResponse;
 import com.example.trainbookingapp.network.ApiService;
 import com.example.trainbookingapp.network.RetrofitClient;
+import com.google.gson.Gson;
 
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -93,28 +99,39 @@ public class LoginActivity extends AppCompatActivity {
             return;
         } else {
             ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
-
             final LoginRequest loginRequest = new LoginRequest(email, password);
-            final TravelerDAO travelerDAO = new TravelerDAO(getApplicationContext());
-            Call<LoginResponse> call = apiService.login(loginRequest);
 
-            call.enqueue(new Callback<LoginResponse>() {
+            Call<StandardResponse<LoginResponse>> call = apiService.login(loginRequest);
+
+            call.enqueue(new Callback<StandardResponse<LoginResponse>>() {
                 @Override
-                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                public void onResponse(Call<StandardResponse<LoginResponse>> call, Response<StandardResponse<LoginResponse>> response) {
                     if (response.isSuccessful()) {
-                        LoginResponse loginResponse = response.body();
-                        showToast("Login Successful!");
-                        Log.d("LoginActivity", "Responses: " + loginResponse.getTraveler().getFirstName());
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(i);
+                        StandardResponse<LoginResponse> loginResponse = response.body();
+                        if(loginResponse.getData() != null){
+                            showToast("Login Successful!");
+                            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(i);
+                        }else{
+                            showToast("Email or Password Invalid!");
+                        }
                     } else {
-                        showToast("Email or Password Invalid!");
-                        Log.d("LoginActivity", "Error: " + response.errorBody());
+                        try {
+                            Gson gson = new Gson();
+                            ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
+
+                            String errorMessage = errorResponse.getMessage();
+                            Log.d("LoginActivity", "Error Message: " + errorMessage);
+                            showToast(errorMessage);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 }
 
                 @Override
-                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                public void onFailure(Call<StandardResponse<LoginResponse>> call, Throwable t) {
                     Log.d("LoginActivity", "Error: " + t.getMessage());
 
                 }
