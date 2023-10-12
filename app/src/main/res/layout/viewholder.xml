@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/src"
+    android:id="@+id/clickme"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="end"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:background="@drawable/searchbar"
-    android:elevation="3dp">
+    android:elevation="3dp"
+    android:clickable="true">
 
     <ImageView
         android:id="@+id/img_view"
-
         android:layout_width="76dp"
         android:layout_height="76dp"
         android:layout_margin="16dp"
@@ -25,7 +25,6 @@
         app:srcCompat="@drawable/train_5" />
 
     <TextView
-
         android:id="@+id/titleTxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -46,7 +45,7 @@
         android:id="@+id/subTitleTxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Bruges is one of Europe's best  preserved cities"
+        android:text="Bruges is one of Europe's best preserved cities"
         app:layout_constraintEnd_toEndOf="@+id/titleTxt"
         app:layout_constraintStart_toStartOf="@+id/titleTxt"
         app:layout_constraintTop_toBottomOf="@+id/titleTxt" />

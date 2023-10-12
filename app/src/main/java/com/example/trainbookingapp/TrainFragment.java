@@ -29,7 +29,7 @@ public class TrainFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         ArrayList<MostViewedDomain> mostviewed = new ArrayList<>();
-        mostviewed.add(new MostViewedDomain("Browsing Bruges in Belgium", "Bruges is one of Europe's best preserved cities", "train_5"));
+        mostviewed.add(new MostViewedDomain("hi hutto", "Bruges is one of Europe's best preserved cities", "train_5"));
         mostviewed.add(new MostViewedDomain("the island Luke Skywalker called home", "Explore Skellig, Ireland's mysterious island outpost", "train_2"));
         mostviewed.add(new MostViewedDomain("Covid-19 in the Airport", "Traveling this summer? What to know before going to the airport", "train_1"));
         mostviewed.add(new MostViewedDomain("Browsing Bruges in Belgium", "Bruges is one of Europe's best-preserved cities", "train_3"));

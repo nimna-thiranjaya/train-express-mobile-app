@@ -13,6 +13,15 @@
         android:theme="@style/Theme.TrainBookingApp"
         tools:targetApi="31">
         <activity
+            android:name=".AddReservationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Reservation_details"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.Reservation_Details"
+            android:exported="false" />
+        <activity
             android:name=".ReservationPage1"
             android:exported="false" />
         <activity
