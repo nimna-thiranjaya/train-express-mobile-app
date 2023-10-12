@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(i);
                     } else {
-                        showToast("Login Failed!");
+                        showToast("Email or Password Invalid!");
                         Log.d("LoginActivity", "Error: " + response.errorBody());
                     }
                 }
