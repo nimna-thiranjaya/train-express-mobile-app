@@ -23,5 +23,5 @@ public interface ApiService {
     Call<StandardResponse<SignUpResponse>> signUp(@Body SignUpRequest signUpRequest);
 
     @GET(prefix + "/{id}")
-    Call<UserResponse> getTravelerById(@Path("id") String id);
+    Call<StandardResponse<UserResponse>> getTravelerById(@Path("id") String id);
 }
