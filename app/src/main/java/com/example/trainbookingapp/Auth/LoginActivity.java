@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.trainbookingapp.MainActivity;
 import com.example.trainbookingapp.R;
+import com.example.trainbookingapp.db.DatabaseHelper;
 import com.example.trainbookingapp.db.TravelerDAO;
 import com.example.trainbookingapp.model.request.LoginRequest;
 import com.example.trainbookingapp.model.request.SignUpRequest;
@@ -35,6 +36,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private EditText editTextText8, editTextPassword;
     private Button loginbtn;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +47,19 @@ public class LoginActivity extends AppCompatActivity {
         editTextText8 = findViewById(R.id.editTextText8);
         editTextPassword = findViewById(R.id.editTextPassword);
 
+        databaseHelper = new DatabaseHelper(getApplicationContext());
+        String id = databaseHelper.getAllTravelerData();
+
+        if(id != null){
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }
+
         loginbtn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            setData();
-                                        }
+            @Override
+            public void onClick(View v) {
+                setData();
+            }
         });
 
         Registerbtn.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
     }
+
     private void setData() {
         String email = editTextText8.getText().toString();
         String password = editTextPassword.getText().toString();
@@ -93,17 +104,22 @@ public class LoginActivity extends AppCompatActivity {
             final LoginRequest loginRequest = new LoginRequest(email, password);
 
             Call<StandardResponse<LoginResponse>> call = apiService.login(loginRequest);
-
+            databaseHelper = new DatabaseHelper(LoginActivity.this);
             call.enqueue(new Callback<StandardResponse<LoginResponse>>() {
                 @Override
                 public void onResponse(Call<StandardResponse<LoginResponse>> call, Response<StandardResponse<LoginResponse>> response) {
                     if (response.isSuccessful()) {
                         StandardResponse<LoginResponse> loginResponse = response.body();
-                        if(loginResponse.getData() != null){
+                        if (loginResponse.getData() != null) {
+                            databaseHelper.saveTravelerData(
+                                    loginResponse.getData().getTraveler().getNic()
+                            );
+
+                            Log.d("LoginActivity", "Login Response: " + databaseHelper.getAllTravelerData().toString());
                             showToast("Login Successful!");
                             Intent i = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(i);
-                        }else{
+                        } else {
                             showToast("Email or Password Invalid!");
                         }
                     } else {

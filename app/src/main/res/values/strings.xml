@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Train Reservation System</string>
-    <string-array name="seat_categories">
-        <item>3A</item>
-        <item>2A</item>
-        <item>1A</item>
-        <item>VIP</item>
-    </string-array>
+<string name="app_name">Train Reservation System</string>
+<string-array name="seat_categories">
+    <item>3A</item>
+    <item>2A</item>
+    <item>1A</item>
+    <item>VIP</item>
+</string-array>
 </resources>
 
 
@@ -14,4 +14,3 @@
     <!--    &lt;!&ndash; TODO: Remove or change this placeholder text &ndash;&gt;-->
     <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
     <!--</resources>-->
-
