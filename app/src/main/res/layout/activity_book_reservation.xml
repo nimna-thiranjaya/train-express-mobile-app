@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Reservation_details">
+    tools:context=".BookReservationActivity">
 
 
     <ScrollView
@@ -20,45 +20,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="700dp">
 
-                <View
-                    android:id="@+id/view3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="360dp"
-                    android:background="@drawable/reser_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/imageView99"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/circles" />
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="44dp"
-                    android:text="Reservation\nDetailes"
-                    android:textColor="#ffffff"
-                    android:textSize="32dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.103"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="85dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="24dp"
                     android:background="@drawable/white_background_profile"
@@ -83,7 +49,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/Schedule"
+                            android:id="@+id/book13"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -94,11 +60,57 @@
                             />
 
                         <TextView
-                            android:id="@+id/Scheduler"
+                            android:id="@+id/book22"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="BT1120"
+                            android:text="BT-3010"
+                            android:textAlignment="textEnd"
+                            android:textColor="#5d5d5d"
+                            android:textSize="16sp"
+
+                            />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="6dp"
+                        android:background="#d9d9d9"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/book1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Depature Station"
+                            android:textColor="#0F7015"
+                            android:textSize="18sp"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/book2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Pettah"
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
@@ -126,22 +138,22 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/Departure"
+                            android:id="@+id/book3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Departure Station"
+                            android:text="Destination Station"
                             android:textColor="#0F7015"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/DepartureR"
+                            android:id="@+id/book4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Pettah"
+                            android:text="Matara"
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
@@ -169,22 +181,22 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/Destination"
+                            android:id="@+id/book5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Destination Station"
+                            android:text="Seat Count"
                             android:textColor="#0F7015"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/DestinationR"
+                            android:id="@+id/book6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Matara"
+                            android:text="2"
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
@@ -212,22 +224,22 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/Runs"
+                            android:id="@+id/book7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Runs On"
+                            android:text="Seat Category"
                             android:textColor="#0F7015"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/RunsR"
+                            android:id="@+id/book8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Every Weekday"
+                            android:text="3A"
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
@@ -249,65 +261,45 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="24dp"
-
+                        android:layout_height="28dp"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/Ticket"
+                            android:id="@+id/book10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Ticket Prices"
-                            android:textColor="#000000"
-                            android:textSize="20sp"
-
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="27dp"
-
-                        android:layout_margin="10dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/price1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="3A"
+                            android:text="Discounts"
                             android:textColor="#0F7015"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/seat"
+                            android:id="@+id/book11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="A-50"
-                            android:textColor="#0F7015"
-                            android:textSize="18sp"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/amount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="1500"
+                            android:text="5% "
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
 
                             />
                     </LinearLayout>
+
+                    <View
+                        android:id="@+id/view10"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="6dp"
+                        android:background="#d9d9d9"
+
+                        />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -317,117 +309,22 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/price2"
+                            android:id="@+id/field_name_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="2A"
+                            android:text="Total Price"
                             android:textColor="#0F7015"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/seat2"
+                            android:id="@+id/book9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="A-58"
-                            android:textColor="#0F7015"
-                            android:textSize="18sp"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/amount2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="2500"
-                            android:textAlignment="textEnd"
-                            android:textColor="#5d5d5d"
-                            android:textSize="16sp"
-
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-
-                        android:layout_margin="10dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/price3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="1A"
-                            android:textColor="#0F7015"
-                            android:textSize="18sp"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/seat3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="A-58"
-                            android:textColor="#0F7015"
-                            android:textSize="18sp"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/amount3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="3500"
-                            android:textAlignment="textEnd"
-                            android:textColor="#5d5d5d"
-                            android:textSize="16sp"
-
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:layout_margin="10dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/price4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="VIP"
-                            android:textColor="#0F7015"
-                            android:textSize="18sp"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/seat4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="A-20"
-                            android:textColor="#0F7015"
-                            android:textSize="18sp"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/amount4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="10000"
+                            android:text="LKR 3000.00"
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
@@ -437,16 +334,51 @@
 
                 </LinearLayout>
 
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="360dp"
+                    android:background="@drawable/reser_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/circles" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Billing\nDetailes!"
+                    android:textColor="#ffffff"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.179"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/ReservationBtn"
+                android:id="@+id/BookNowBtn"
                 style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="24dp"
                 android:background="@drawable/background_btn"
-                android:text="Add Reservation"
+                android:text="Book Now"
                 android:textColor="@android:color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
