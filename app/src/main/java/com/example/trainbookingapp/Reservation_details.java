@@ -4,10 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.example.trainbookingapp.Auth.SignInActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -35,8 +31,6 @@ public class Reservation_details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_details);
-        Button addRes = findViewById(R.id.ReservationBtn);
-
         // Retrieve data from the Intent
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
@@ -66,11 +60,6 @@ public class Reservation_details extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), AddReservationActivity.class);
-                startActivity(i);
-            }
-
-
-        });
                 i.putExtra("scheduleId", id);
                 startActivity(i);
             }
