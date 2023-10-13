@@ -1,43 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="90dp"
-    android:layout_height="90dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clickticket"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="end"
-    android:layout_margin="8dp"
-    android:background="@drawable/searchbar"
-    android:elevation="3dp">
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="10dp"
+    android:background="#e6e4ec"
+    android:clickable="true">
 
-    <ImageView
-        android:id="@+id/img_view"
-
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="16dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:background="@drawable/white_background_profile"
+        android:elevation="3dp"
+        android:orientation="vertical"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29"
-        app:srcCompat="@drawable/cat_1" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintVertical_bias="0.0">
 
-    <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
 
-        android:id="@+id/titleTxt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/Depature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Departure Station"
+                android:textColor="#0F7015"
+                android:textSize="18sp"
 
-        android:gravity="center"
-        android:lines="2"
-        android:text="title"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="14sp"
+                />
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_view" />
+            <TextView
+                android:id="@+id/deps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pettah"
+                android:textAlignment="textEnd"
+                android:textColor="#5d5d5d"
+                android:textSize="16sp"
 
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Destination Station"
+                android:textColor="#0F7015"
+                android:textSize="18sp"
+
+                />
+
+            <TextView
+                android:id="@+id/dess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Matara"
+                android:textAlignment="textEnd"
+                android:textColor="#5d5d5d"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Booked Date"
+                android:textColor="#0F7015"
+                android:textSize="18sp"
+
+                />
+
+            <TextView
+                android:id="@+id/dates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2023 Oct 12"
+                android:textAlignment="textEnd"
+                android:textColor="#5d5d5d"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Class"
+                android:textColor="#0F7015"
+                android:textSize="18sp"
+
+                />
+
+            <TextView
+                android:id="@+id/Second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Second Class"
+                android:textAlignment="textEnd"
+                android:textColor="#5d5d5d"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Departure time"
+                android:textColor="#0F7015"
+                android:textSize="18sp"
+
+                />
+
+            <TextView
+                android:id="@+id/times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="02:55am"
+                android:textAlignment="textEnd"
+                android:textColor="#5d5d5d"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Seat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Seat Count"
+                android:textColor="#0F7015"
+                android:textSize="18sp"
+
+                />
+
+            <TextView
+                android:id="@+id/seats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4"
+                android:textAlignment="textEnd"
+                android:textColor="#5d5d5d"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/nic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="User NIC"
+                android:textColor="#0F7015"
+                android:textSize="18sp"
+
+                />
+
+            <TextView
+                android:id="@+id/nicf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="200003800410"
+                android:textAlignment="textEnd"
+                android:textColor="#5d5d5d"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
