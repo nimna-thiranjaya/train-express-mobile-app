@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.trainbookingapp.db.DatabaseHelper;
 import com.example.trainbookingapp.model.response.ErrorResponse;
 import com.example.trainbookingapp.model.response.LoginResponse;
 import com.example.trainbookingapp.model.response.StandardResponse;
@@ -36,6 +37,7 @@ public class ProfileFragment extends Fragment {
     private TextView nicTextView;
     private TextView roleTextView;
 
+    private DatabaseHelper databaseHelper;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,7 +59,9 @@ public class ProfileFragment extends Fragment {
 //        Log.d("ProfileFragment", "fetchTravelerData: " + "fetchTravelerData");
         ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
 
-        String id = "2342563789";
+        databaseHelper = new DatabaseHelper(getContext());
+        String id = databaseHelper.getAllTravelerData();
+//        String id = "2342563789";
 
         Call<StandardResponse<UserResponse>> call = apiService.getTravelerById(id);
 

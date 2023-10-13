@@ -1,32 +1,28 @@
 package com.example.trainbookingapp.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.trainbookingapp.model.response.SignUpResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "train__db";
     private static final int DATABASE_VERSION = 1;
 
+    private static final String ID_COL = "id";
     private static final String TABLE_TRAVELER = "traveler";
     private static final String COLUMN_NIC = "nic";
-    private static final String COLUMN_FIRST_NAME = "first_name";
-    private static final String COLUMN_LAST_NAME = "last_name";
-    private static final String COLUMN_EMAIL = "email";
-    private static final String COLUMN_ROLE = "role";
-
     private static final String CREATE_TABLE_TRAVELER =
-            "CREATE TABLE " + TABLE_TRAVELER + "("
-                    + "id" + "INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + COLUMN_FIRST_NAME + " TEXT"
-                    + COLUMN_LAST_NAME + "TEXT"
-                    + COLUMN_EMAIL + "TEXT"
-                    + COLUMN_ROLE + "TEXT"
-                    + COLUMN_NIC + "TEXT"
-                    + ")";
+            "CREATE TABLE " + TABLE_TRAVELER + " ("
+                    + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + COLUMN_NIC + " TEXT NOT NULL)";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -45,22 +41,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Method to save traveler data to SQLite
-    public void saveTravelerData(String nic , String firstName, String lastName, String email, String role) {
+    public void saveTravelerData(String nic) {
+        deleteAllTravelers();
         SQLiteDatabase db = this.getWritableDatabase();
-
-        //remove all data from table before insert new data
-        db.delete(TABLE_TRAVELER, null, null);
-        db.close();
-
         ContentValues values = new ContentValues();
+
         values.put(COLUMN_NIC, nic);
-        values.put(COLUMN_FIRST_NAME, firstName);
-        values.put(COLUMN_LAST_NAME, lastName);
-        values.put(COLUMN_EMAIL, email);
-        values.put(COLUMN_ROLE, role);
 
         db.insert(TABLE_TRAVELER, null, values);
         db.close();
+    }
+
+    public void deleteAllTravelers(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from "+ TABLE_TRAVELER);
+        db.close();
+    }
+
+    public String getAllTravelerData() {
+        List<String> travelerList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Define the columns you want to retrieve
+        String[] columns = {COLUMN_NIC};
+
+        Cursor cursor = db.query(
+                TABLE_TRAVELER,  // Table name
+                columns,         // Columns to retrieve
+                null,            // Selection (WHERE clause), null for all rows
+                null,            // Selection arguments
+                null,            // Group by
+                null,            // Having
+                null             // Order by
+        );
+
+        // Iterate through the cursor and add data to the list
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String nic = cursor.getString(cursor.getColumnIndex(COLUMN_NIC));
+                travelerList.add(nic);
+            } while (cursor.moveToNext());
+
+            // Close the cursor
+            cursor.close();
+        }
+
+        // Close the database connection
+        db.close();
+
+        return travelerList.get(0);
     }
 
 }

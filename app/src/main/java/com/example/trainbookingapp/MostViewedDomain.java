@@ -5,10 +5,14 @@ public class MostViewedDomain {
     private String subtitle;
     private String url;
 
-    public MostViewedDomain(String title, String subtitle, String url) {
+    private String id;
+
+    public MostViewedDomain(String title, String subtitle, String url, String id) {
         this.title = title;
         this.subtitle = subtitle;
         this.url = url;
+        this.id = id;
+
     }
 
     public String getTitle() {
@@ -25,6 +29,14 @@ public class MostViewedDomain {
 
     public void setSubtitle(String subtitle) {
         this.subtitle = subtitle;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUrl() {
