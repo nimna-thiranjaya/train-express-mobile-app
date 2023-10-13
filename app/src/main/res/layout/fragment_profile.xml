@@ -50,7 +50,7 @@
                     app:srcCompat="@drawable/profile" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/nameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -70,9 +70,9 @@
                     android:textColor="#fff"
                     android:textSize="18sp"
 
-                    app:layout_constraintEnd_toEndOf="@+id/textView13"
-                    app:layout_constraintStart_toStartOf="@+id/textView13"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                    app:layout_constraintEnd_toEndOf="@+id/nameTextView"
+                    app:layout_constraintStart_toStartOf="@+id/nameTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -247,11 +247,11 @@
                             />
 
                         <TextView
-                            android:id="@+id/textView15"
+                            android:id="@+id/firstNameTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Nimna"
+                            android:text="Nimna gg"
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
@@ -290,7 +290,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/text_last"
+                            android:id="@+id/lastNameTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -322,7 +322,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/field_mobile"
+                            android:id="@+id/mobileTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -376,7 +376,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/text_nic"
+                            android:id="@+id/nicTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -408,18 +408,18 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/field_name_1"
+                            android:id="@+id/text_role"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Role"
+                            android:text="Nationality"
                             android:textColor="#0F7015"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/text_role"
+                            android:id="@+id/roleTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
