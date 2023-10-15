@@ -20,11 +20,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="51cd8eb6-5596-421c-9b61-129b9b095d52" object-ref="schemas/main/tables/traveler" />
-      <object connection-id="51cd8eb6-5596-421c-9b61-129b9b095d52" object-ref="schemas/main/tables/sqlite_sequence" />
-      <object connection-id="51cd8eb6-5596-421c-9b61-129b9b095d52" object-ref="schemas/main/tables/android_metadata" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="51cd8eb6-5596-421c-9b61-129b9b095d52" dataset="main.sqlite_sequence" active-filter-id="" />
