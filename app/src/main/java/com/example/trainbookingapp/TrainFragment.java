@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.trainbookingapp.model.response.ErrorResponse;
@@ -34,6 +37,9 @@ public class TrainFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
     private MostViewAdapter mostViewAdapter;
+    private EditText search_text;
+   private List<MostViewedDomain> mostViewedDomains;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,25 +47,34 @@ public class TrainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_train, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.viewMostView);
+        search_text = (EditText) view.findViewById(R.id.search_text);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-//        ArrayList<MostViewedDomain> mostviewed = new ArrayList<>();
-//        mostviewed.add(new MostViewedDomain("hi hutto", "Bruges is one of Europe's best preserved cities", "train_5"));
-//        mostviewed.add(new MostViewedDomain("the island Luke Skywalker called home", "Explore Skellig, Ireland's mysterious island outpost", "train_2"));
-//        mostviewed.add(new MostViewedDomain("Covid-19 in the Airport", "Traveling this summer? What to know before going to the airport", "train_1"));
-//        mostviewed.add(new MostViewedDomain("Browsing Bruges in Belgium", "Bruges is one of Europe's best-preserved cities", "train_3"));
-//        mostviewed.add(new MostViewedDomain("Browsing Bruges in Belgium", "Bruges is one of Europe's best preserved cities", "train_5"));
-//
-//        adapter = new MostViewAdapter(mostviewed);
-//        recyclerView.setAdapter(adapter);
-
         mostViewAdapter = new MostViewAdapter(new ArrayList<>());
         recyclerView.setAdapter(mostViewAdapter);
 
         fetchDataFromApi();
+
+        search_text.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not used in this implementation
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Filter the data based on the search query
+                filterData(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         return view;
     }
@@ -79,7 +94,7 @@ public class TrainFragment extends Fragment {
 
                    ArrayList<ScheduleDataResponse> scheduleDataResponses = standardResponse.getData();
 
-                    List<MostViewedDomain> mostViewedDomains = convertToMostViewedDomains(scheduleDataResponses);
+                    mostViewedDomains = convertToMostViewedDomains(scheduleDataResponses);
 
                     adapter = new MostViewAdapter(mostViewedDomains);
                     recyclerView.setAdapter(adapter);
@@ -123,5 +138,19 @@ public class TrainFragment extends Fragment {
         }
 
         return result;
+    }
+
+    private void filterData(String query) {
+        List<MostViewedDomain> filteredList = new ArrayList<>();
+
+        for (MostViewedDomain item : mostViewedDomains) {
+            if (item.getTitle().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+
+        // Update the RecyclerView with the filtered data
+        adapter = new MostViewAdapter(filteredList);
+        recyclerView.setAdapter(adapter);
     }
 }

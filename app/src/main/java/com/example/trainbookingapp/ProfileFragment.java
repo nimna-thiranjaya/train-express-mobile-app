@@ -56,12 +56,10 @@ public class ProfileFragment extends Fragment {
     }
 
     private void fetchTravelerData() {
-//        Log.d("ProfileFragment", "fetchTravelerData: " + "fetchTravelerData");
         ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
 
         databaseHelper = new DatabaseHelper(getContext());
         String id = databaseHelper.getAllTravelerData();
-//        String id = "2342563789";
 
         Call<StandardResponse<UserResponse>> call = apiService.getTravelerById(id);
 

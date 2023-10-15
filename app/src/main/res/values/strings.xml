@@ -1,10 +1,11 @@
 <resources>
 <string name="app_name">Train Reservation System</string>
 <string-array name="seat_categories">
-    <item>3A</item>
-    <item>2A</item>
-    <item>1A</item>
-    <item>VIP</item>
+    <item>Select Seat Type</item>
+    <item>ThirdClass</item>
+    <item>SecondClass</item>
+    <item>FirstClass</item>
+    <item>VIPClass</item>
 </string-array>
 </resources>
 

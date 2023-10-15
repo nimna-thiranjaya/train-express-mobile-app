@@ -53,14 +53,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Schedule No"
+                            android:text="Train No"
                             android:textColor="#0F7015"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/book22"
+                            android:id="@+id/train_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -106,7 +106,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/book2"
+                            android:id="@+id/departure_station"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -149,7 +149,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/book4"
+                            android:id="@+id/destination_station"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -192,7 +192,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/book6"
+                            android:id="@+id/seat_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -235,7 +235,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/book8"
+                            android:id="@+id/seat_category"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -277,7 +277,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/book11"
+                            android:id="@+id/discount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -320,7 +320,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/book9"
+                            android:id="@+id/total_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -378,7 +378,7 @@
                 android:layout_height="50dp"
                 android:layout_margin="24dp"
                 android:background="@drawable/background_btn"
-                android:text="Book Now"
+                android:text="Confirm Booking"
                 android:textColor="@android:color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
