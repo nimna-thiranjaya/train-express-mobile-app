@@ -24,7 +24,7 @@
                     android:id="@+id/view3"
                     android:layout_width="wrap_content"
                     android:layout_height="360dp"
-                    android:background="@drawable/top_backgroud"
+                    android:background="@drawable/reser_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

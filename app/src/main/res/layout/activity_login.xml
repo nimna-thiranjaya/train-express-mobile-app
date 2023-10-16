@@ -9,13 +9,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_background" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/newbacks" />
 
     <TextView
         android:id="@+id/textView3"
@@ -85,13 +88,17 @@
             android:textColor="#707070"
             android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/Registerbtn"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/loginbtn"
+            style="@android:style/Widget.Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="@color/maingreen"
-            android:text="Register Here" />
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/background_btn"
+            android:text="Login"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -142,10 +149,10 @@
                 <ImageView
                     android:id="@+id/image1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
-                    app:srcCompat="@drawable/facebook" />
+                    app:srcCompat="@drawable/fbfb" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -154,7 +161,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:text="Facebook"
-                    android:textColor="@android:color/holo_green_dark"
+                    android:textColor="@color/ravis_perple"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -174,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
-                    app:srcCompat="@drawable/google" />
+                    app:srcCompat="@drawable/goo" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -183,24 +190,21 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:text="Google"
-                    android:textColor="@android:color/holo_green_dark"
+                    android:textColor="@color/ravis_perple"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/loginbtn"
+        <Button
+            android:id="@+id/Registerbtn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            style="@android:style/Widget.Button"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:background="@drawable/loginbutton_background"
-            android:text="Login" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+
+            android:text="Register Here" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

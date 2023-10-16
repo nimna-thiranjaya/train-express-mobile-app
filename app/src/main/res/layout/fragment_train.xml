@@ -9,21 +9,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/reser_background">
 
         <ImageView
             android:id="@+id/imageView22"
             android:layout_width="match_parent"
             android:layout_height="244dp"
+            android:contentDescription="TODO"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            tools:srcCompat="@drawable/bola"
-            android:contentDescription="TODO" />
+            tools:srcCompat="@drawable/circles" />
 
         <ImageView
             android:id="@+id/imageView2"

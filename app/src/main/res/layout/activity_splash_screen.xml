@@ -21,9 +21,25 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/app_name"
         android:textAlignment="center"
-        android:textColor="@color/dark_blue"
+        android:textColor="@color/ravis_perple"
         android:textSize="40sp"
         android:textStyle="bold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/split"
+            android:layout_width="410dp"
+            android:layout_height="373dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="137dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/tr2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/button2"

@@ -26,7 +26,7 @@ public class TicketFragment extends Fragment {
 
         ArrayList<TicketDomain> ticketviewed = new ArrayList<>();
         ticketviewed.add(new TicketDomain("Pettah", "Matara", "5", "2023 oct 23","Second Class","2.00 am","200003800410"));
-        ticketviewed.add(new TicketDomain("Pettah", "Matara", "5", "2023 oct 23","Second Class","2.00 am","200003800410"));
+        ticketviewed.add(new TicketDomain("Badulla", "Kandy", "2", "2023 Nov 02","First Class","10.00 am","225233002530"));
         ticketviewed.add(new TicketDomain("Pettah", "Matara", "5", "2023 oct 23","Second Class","2.00 am","200003800410"));
 
         // Create an instance of TicketAdapter and pass the ArrayList to its constructor
