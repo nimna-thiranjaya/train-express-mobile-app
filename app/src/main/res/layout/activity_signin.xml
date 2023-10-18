@@ -196,20 +196,11 @@
 <!--                    android:id="@+id/button4"-->
 <!--                    android:layout_width="wrap_content"-->
 <!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_marginTop="4dp"-->
 <!--                    android:layout_gravity="center_vertical"-->
 <!--                    android:layout_marginStart="32dp"-->
+<!--                    android:background="@drawable/background_btn"-->
 <!--                    android:text="Pick Image" />-->
 <!--            </LinearLayout>-->
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="32dp"
-                    android:background="@drawable/background_btn"
-                    android:text="Pick Image" />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/password_text"
@@ -235,7 +226,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/confirm_password_text"
+                android:id="@+id/editTextPassword2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"

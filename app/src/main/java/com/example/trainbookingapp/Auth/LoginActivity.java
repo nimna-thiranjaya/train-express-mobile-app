@@ -47,13 +47,13 @@ public class LoginActivity extends AppCompatActivity {
         editTextText8 = findViewById(R.id.editTextText8);
         editTextPassword = findViewById(R.id.editTextPassword);
 
-//        databaseHelper = new DatabaseHelper(getApplicationContext());
-//        String id = databaseHelper.getAllTravelerData();
-//
-//        if(id != null){
-//            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(i);
-//        }
+        databaseHelper = new DatabaseHelper(getApplicationContext());
+        String id = databaseHelper.getAllTravelerData();
+
+        if(id != null){
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override

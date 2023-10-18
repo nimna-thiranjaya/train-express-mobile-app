@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class ProfileFragment extends Fragment {
     private TextView roleTextView;
 
     private DatabaseHelper databaseHelper;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,10 +51,20 @@ public class ProfileFragment extends Fragment {
         mobileTextView = view.findViewById(R.id.mobileTextView);
         nicTextView = view.findViewById(R.id.nicTextView);
         roleTextView = view.findViewById(R.id.roleTextView);
+        Button editButton = view.findViewById(R.id.editBtn55);
 
         fetchTravelerData();
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
+
 
     private void fetchTravelerData() {
         ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);

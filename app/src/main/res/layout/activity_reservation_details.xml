@@ -88,7 +88,6 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Train No"
-                            android:textColor="#0F7015"
                             android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
