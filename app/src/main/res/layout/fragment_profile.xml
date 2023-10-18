@@ -18,13 +18,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="933dp">
 
                 <View
                     android:id="@+id/view3"
                     android:layout_width="wrap_content"
                     android:layout_height="360dp"
-                    android:background="@drawable/top_backgroud"
+                    android:background="@drawable/reser_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -75,6 +75,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -241,7 +242,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="First Name"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -284,7 +285,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Last Name"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -327,7 +328,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Mobile"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -370,7 +371,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="NIC"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -414,6 +415,8 @@
                             android:layout_weight="1"
                             android:text="Nationality"
                             android:textColor="#0F7015"
+                            android:text="Role"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -433,9 +436,56 @@
 
                 </LinearLayout>
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button6"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/deact_btn_style"
+                    android:text="Deactive"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/editBtn55"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/edit_btn_style"
+                    android:text="Edit"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/button6"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button11"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/logout_stylebtn"
+                    android:text="Log Out"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/button10"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
 <!--                android:id="@+id/button5"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="50dp"-->

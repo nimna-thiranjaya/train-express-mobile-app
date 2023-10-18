@@ -17,6 +17,12 @@
         android:theme="@style/Theme.TrainBookingApp"
         tools:targetApi="31">
         <activity
+            android:name=".EditReservationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".BookReservationActivity"
             android:exported="false" />
         <activity

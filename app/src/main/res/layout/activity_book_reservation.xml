@@ -18,7 +18,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="700dp">
+                android:layout_height="650dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Depature Station"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -143,7 +143,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Destination Station"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -186,7 +186,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Seat Count"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -229,7 +229,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Seat Category"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -271,7 +271,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Discounts"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -314,7 +314,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Total Price"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -371,6 +371,44 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="32dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/rescancelbtn"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="167dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/deact_btn_style"
+                    android:text="Cancel"
+                    android:textColor="#ffffff"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/editBtn"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="167dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/edit_btn_style"
+                    android:text="Edit"
+                    android:textColor="#ffffff"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/button6"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            </LinearLayout>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/BookNowBtn"
                 style="@android:style/Widget.Button"
@@ -382,6 +420,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 
