@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddReservationActivity">
+    tools:context=".EditReservationActivity">
+
 
     <View
         android:id="@+id/view3"
@@ -31,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="32dp"
-        android:text="Add\nReservation!"
+        android:text="Edit\nReservation!"
         android:textColor="#ffffff"
         android:textSize="32dp"
         android:textStyle="bold"
@@ -222,9 +223,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginBottom="50dp"
                 android:background="@drawable/background_btn"
                 android:text="Next Step"
+                android:layout_marginBottom="50dp"
                 android:textColor="#ffffff"
                 android:textSize="25sp"
                 android:textStyle="bold" />

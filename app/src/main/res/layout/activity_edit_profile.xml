@@ -4,26 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddReservationActivity">
+    tools:context=".EditProfileActivity">
 
-    <View
-        android:id="@+id/view3"
-        android:layout_width="wrap_content"
-        android:layout_height="360dp"
-        android:background="@drawable/reser_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/reser_background" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/newbacks" />
 
     <TextView
         android:id="@+id/textView3"
@@ -31,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="32dp"
-        android:text="Add\nReservation!"
+        android:text="Update,\nProfile"
         android:textColor="#ffffff"
         android:textSize="32dp"
         android:textStyle="bold"
@@ -41,7 +36,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="180dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +52,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Traveller Name"
+                android:text="First Name"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -70,7 +65,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edittext_background"
                 android:ems="10"
-                android:hint="Enter Your Traveller Name"
+                android:hint="Enter Your First Name"
                 android:inputType="text"
                 android:padding="12dp"
                 android:textColor="#707070"
@@ -81,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="NIC"
+                android:text="Last Name"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -93,7 +88,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edittext_background"
                 android:ems="10"
-                android:hint="Enter Your Nic"
+                android:hint="Enter Your Last Name"
                 android:inputType="text"
                 android:padding="12dp"
                 android:textColor="#707070"
@@ -133,98 +128,77 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText2"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/edittext_background"
-                android:ems="10"
-                android:hint="Enter Your Contact Number"
-                android:inputType="text"
-                android:padding="12dp"
-                android:textColor="#707070"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Nationality"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-
-            <EditText
                 android:id="@+id/editTextText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edittext_background"
                 android:ems="10"
-                android:hint="Enter Your Nationality"
+                android:hint="Enter your NIC"
                 android:inputType="text"
                 android:padding="12dp"
                 android:textColor="#707070"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Seat Category"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#DFDBDF"
-                android:orientation="horizontal">
-
-                <Spinner
-                    android:id="@+id/spinner1"
-                    android:layout_width="200dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
+                android:orientation="horizontal"/>
 
             <TextView
-                android:id="@+id/seatcount"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Seat Count"
+                android:text="Password"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/SeatCountfill"
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edittext_background"
                 android:ems="10"
-                android:hint="Enter Seat Count"
+                android:hint="Enter your Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textColor="#707070"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/password2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Confirm Password"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextPassword2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Enter your Confirm Password"
                 android:inputType="textPassword"
                 android:padding="12dp"
                 android:textColor="#707070"
                 android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/nextstepbtn"
+                android:id="@+id/button"
                 style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginBottom="50dp"
                 android:background="@drawable/background_btn"
-                android:text="Next Step"
+                android:text="Update"
                 android:textColor="#ffffff"
                 android:textSize="25sp"
                 android:textStyle="bold" />

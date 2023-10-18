@@ -18,7 +18,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="853dp">
+                android:layout_height="933dp">
 
                 <View
                     android:id="@+id/view3"
@@ -242,7 +242,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="First Name"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -285,7 +285,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Last Name"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -328,7 +328,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Mobile"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -371,7 +371,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="NIC"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -414,7 +414,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Role"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -450,7 +450,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button10"
+                    android:id="@+id/editBtn55"
                     style="@android:style/Widget.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -483,7 +483,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
 <!--                android:id="@+id/button5"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="50dp"-->

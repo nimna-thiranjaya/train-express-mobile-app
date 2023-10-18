@@ -88,7 +88,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Schedule No"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -131,7 +131,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Departure Station"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -174,7 +174,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Destination Station"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -217,7 +217,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Runs On"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -280,7 +280,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="3A"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -291,7 +291,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="A-50"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -322,7 +322,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="2A"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -333,7 +333,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="A-58"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -364,7 +364,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="1A"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -375,7 +375,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="A-58"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -406,7 +406,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="VIP"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -417,7 +417,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="A-20"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />

@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Departure Station"
-                android:textColor="#0F7015"
+                android:textColor="@color/ravis_perple"
                 android:textSize="18sp"
 
                 />
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Destination Station"
-                android:textColor="#0F7015"
+                android:textColor="@color/ravis_perple"
                 android:textSize="18sp"
 
                 />
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Booked Date"
-                android:textColor="#0F7015"
+                android:textColor="@color/ravis_perple"
                 android:textSize="18sp"
 
                 />
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Class"
-                android:textColor="#0F7015"
+                android:textColor="@color/ravis_perple"
                 android:textSize="18sp"
 
                 />
@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Departure time"
-                android:textColor="#0F7015"
+                android:textColor="@color/ravis_perple"
                 android:textSize="18sp"
 
                 />
@@ -197,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Seat Count"
-                android:textColor="#0F7015"
+                android:textColor="@color/ravis_perple"
                 android:textSize="18sp"
 
                 />
@@ -228,7 +228,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="User NIC"
-                android:textColor="#0F7015"
+                android:textColor="@color/ravis_perple"
                 android:textSize="18sp"
 
                 />
