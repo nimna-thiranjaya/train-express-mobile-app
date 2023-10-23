@@ -39,6 +39,8 @@ public class EditReservationActivity extends AppCompatActivity {
 
     private String seatCategory;
 
+    String sheduleId;
+
     Button nextstepbtn;
 
     @Override
@@ -63,7 +65,7 @@ public class EditReservationActivity extends AppCompatActivity {
         nextstepbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                upadteReservation(reservationId, id);
+                upadteReservation(reservationId, id, sheduleId);
             }
         });
 
@@ -129,6 +131,7 @@ public class EditReservationActivity extends AppCompatActivity {
                     int seatCount = reservationResponse.getReservationResponse().getSeatCount();
                     String seatCountString = String.valueOf(seatCount);
                     seatCategory = reservationResponse.getReservationResponse().getSeatType().toString();
+                    sheduleId = reservationResponse.getScheduleWithTrainDetailsResponse().getScheduleResponse().getId().toString();
                     Log.d("BookReservationActivity", "onResponse: " + seatCategory);
 
                     Spinner seatCategorySpinner = findViewById(R.id.spinner1);
@@ -168,7 +171,7 @@ public class EditReservationActivity extends AppCompatActivity {
         });
     }
 
-    private void upadteReservation(String reservationId, String id) {
+    private void upadteReservation(String reservationId, String id, String sheduleId) {
         String seatCategory = spinner1.getSelectedItem().toString();
         String seatCount = SeatCountfill.getText().toString();
         String email = email_edit.getText().toString();
@@ -207,9 +210,38 @@ public class EditReservationActivity extends AppCompatActivity {
         } else {
             ReservationApiService reservationApiService = RetrofitClient.getRetrofitInstance().create(ReservationApiService.class);
 
-            AddReservationRequest reqUpdateReq = new AddReservationRequest(id, seatCategory, seatCategory,Integer.parseInt(seatCount));
+            AddReservationRequest reqUpdateReq = new AddReservationRequest(sheduleId, id, seatCategory,Integer.parseInt(seatCount));
 
-            Log.d("BookReservationActivity", "onResponse: " + reqUpdateReq.toString());
+            Log.d("EditReservationActivity", "upadteReservation: " + reqUpdateReq.toString());
+
+            Call<StandardResponse> call = reservationApiService.updateReservationById(reservationId, reqUpdateReq);
+
+            call.enqueue(new Callback<StandardResponse>() {
+                @Override
+                public void onResponse(Call<StandardResponse> call, Response<StandardResponse> response) {
+                    if(response.isSuccessful()){
+                        showToast(response.body().getMessage());
+                        Intent intent = new Intent(getApplicationContext(), BookReservationActivity.class);
+                        intent.putExtra("reservationId", reservationId);
+                        startActivity(intent);
+                    }else{
+                        try {
+                            Gson gson = new Gson();
+                            ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
+                            String errorMessage = errorResponse.getMessage();
+                            showToast(errorMessage);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<StandardResponse> call, Throwable t) {
+                    Log.d("BookReservationActivity", "onFailure: " + t.getLocalizedMessage());
+                }
+            });
         }
     }
 }
