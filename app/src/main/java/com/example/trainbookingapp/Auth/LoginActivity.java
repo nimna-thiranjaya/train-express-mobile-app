@@ -108,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
             call.enqueue(new Callback<StandardResponse<LoginResponse>>() {
                 @Override
                 public void onResponse(Call<StandardResponse<LoginResponse>> call, Response<StandardResponse<LoginResponse>> response) {
+                    Log.d("LoginActivity", "Login Response: " + response.toString());
                     if (response.isSuccessful()) {
                         StandardResponse<LoginResponse> loginResponse = response.body();
                         if (loginResponse.getData() != null) {

@@ -18,6 +18,7 @@ import com.example.trainbookingapp.model.request.AddReservationRequest;
 import com.example.trainbookingapp.model.response.ErrorResponse;
 import com.example.trainbookingapp.model.response.GetReservationResponse;
 import com.example.trainbookingapp.model.response.StandardResponse;
+import com.example.trainbookingapp.model.response.UserResponse;
 import com.example.trainbookingapp.network.ApiService;
 import com.example.trainbookingapp.network.ReservationApiService;
 import com.example.trainbookingapp.network.RetrofitClient;
@@ -52,6 +53,8 @@ public class AddReservationActivity extends AppCompatActivity {
         number_edit = findViewById(R.id.number_edit);
         SeatCountfill = findViewById(R.id.SeatCountfill);
         spinner1 = findViewById(R.id.spinner1);
+
+        fetchTravelerData();
 
 
         Spinner seatCategorySpinner = findViewById(R.id.spinner1);
@@ -169,5 +172,48 @@ public class AddReservationActivity extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void fetchTravelerData() {
+        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
+
+        databaseHelper = new DatabaseHelper(getApplicationContext());
+        String id = databaseHelper.getAllTravelerData();
+
+        Call<StandardResponse<UserResponse>> call = apiService.getTravelerById(id);
+
+        call.enqueue(new Callback<StandardResponse<UserResponse>>() {
+            @Override
+            public void onResponse(Call<StandardResponse<UserResponse>> call, Response<StandardResponse<UserResponse>> response) {
+                if (response.isSuccessful()) {
+                    StandardResponse<UserResponse> loginResponse = response.body();
+                    if (loginResponse.getData() != null) {
+                        UserResponse userResponse = loginResponse.getData();
+                        traveller_name.setText(userResponse.getFirstName() + " " + userResponse.getLastName());
+                        email_edit.setText(userResponse.getEmail());
+                        number_edit.setText(userResponse.getMobile());
+                        // success
+                        Log.d("ProfileFragment", "onResponse: " + loginResponse.getData().toString());
+                    } else {
+                        showToast("No data found");
+                    }
+                } else {
+                    try {
+                        Gson gson = new Gson();
+                        ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
+                        String errorMessage = errorResponse.getMessage();
+                        showToast(errorMessage);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StandardResponse<UserResponse>> call, Throwable t) {
+                Log.d("ProfileFragment", "Error: " + t.getMessage());
+            }
+        });
     }
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -23,4 +24,7 @@ public interface ReservationApiService {
 
     @GET(prefix + "/{id}")
     Call<StandardResponse<GetReservationResponse>> getReservationById(@Path("id") String id);
+
+    @DELETE(prefix + "/{id}")
+    Call<StandardResponse> deleteReservationById(@Path("id") String id);
 }

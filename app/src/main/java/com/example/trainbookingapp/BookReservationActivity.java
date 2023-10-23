@@ -27,7 +27,7 @@ public class BookReservationActivity extends AppCompatActivity {
 
     TextView train_no,departure_station,destination_station,seat_count,seat_category,total_price,discount;
 
-    Button BookNowBtn;
+    Button BookNowBtn,rescancelbtn,editBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +41,38 @@ public class BookReservationActivity extends AppCompatActivity {
         total_price = findViewById(R.id.total_price);
         discount = findViewById(R.id.discount);
         BookNowBtn = findViewById(R.id.BookNowBtn);
+        rescancelbtn = findViewById(R.id.rescancelbtn);
+        editBtn = findViewById(R.id.editBtn);
 
         Intent i = getIntent();
         String reservationId = i.getStringExtra("reservationId");
         getReservationDetais(reservationId);
+
+        BookNowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("Reservation Booked Successfully");
+                Intent intent = new Intent(BookReservationActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BookReservationActivity.this, EditReservationActivity.class);
+                intent.putExtra("reservationId", reservationId);
+                startActivity(intent);
+            }
+        });
+
+
+        rescancelbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelReservation(reservationId);
+            }
+        });
 
     }
 
@@ -100,11 +128,44 @@ public class BookReservationActivity extends AppCompatActivity {
                 Log.d("BookReservationActivity", "onFailure: " + t.getLocalizedMessage());
             }
 
-            private void showToast(String message) {
-                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+
+        });
+    }
+    private void showToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void cancelReservation(String reservationId) {
+        ReservationApiService reservationApiService = RetrofitClient.getRetrofitInstance().create(ReservationApiService.class);
+
+
+        Call<StandardResponse> call = reservationApiService.deleteReservationById(reservationId);
+
+
+        call.enqueue(new Callback<StandardResponse>() {
+            @Override
+            public void onResponse(Call<StandardResponse> call, Response<StandardResponse> response) {
+                if(response.isSuccessful()){
+                    Log.d("BookReservationActivity", "onResponse: " + response.body().getMessage());
+                    showToast(response.body().getMessage());
+                    Intent intent = new Intent(BookReservationActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }else{
+                    try {
+                        Gson gson = new Gson();
+                        ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
+                        String errorMessage = errorResponse.getMessage();
+                        showToast(errorMessage);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StandardResponse> call, Throwable t) {
+                Log.d("BookReservationActivity", "onFailure: " + t.getLocalizedMessage());
             }
         });
-
-
     }
 }
