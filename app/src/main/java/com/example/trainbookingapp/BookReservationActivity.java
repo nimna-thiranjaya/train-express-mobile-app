@@ -2,6 +2,8 @@ package com.example.trainbookingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,7 +72,24 @@ public class BookReservationActivity extends AppCompatActivity {
         rescancelbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cancelReservation(reservationId);
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setTitle("Confirm");
+                builder.setMessage("Are you sure you want to cancel this Reservation?");
+                builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        cancelReservation(reservationId);
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+
+                // Create and show the dialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -142,30 +161,30 @@ public class BookReservationActivity extends AppCompatActivity {
         Call<StandardResponse> call = reservationApiService.deleteReservationById(reservationId);
 
 
-        call.enqueue(new Callback<StandardResponse>() {
-            @Override
-            public void onResponse(Call<StandardResponse> call, Response<StandardResponse> response) {
-                if(response.isSuccessful()){
-                    Log.d("BookReservationActivity", "onResponse: " + response.body().getMessage());
-                    showToast(response.body().getMessage());
-                    Intent intent = new Intent(BookReservationActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }else{
-                    try {
-                        Gson gson = new Gson();
-                        ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
-                        String errorMessage = errorResponse.getMessage();
-                        showToast(errorMessage);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+            call.enqueue(new Callback<StandardResponse>() {
+                @Override
+                public void onResponse(Call<StandardResponse> call, Response<StandardResponse> response) {
+                    if(response.isSuccessful()){
+                        Log.d("BookReservationActivity", "onResponse: " + response.body().getMessage());
+                        showToast(response.body().getMessage());
+                        Intent intent = new Intent(BookReservationActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }else{
+                        try {
+                            Gson gson = new Gson();
+                            ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
+                            String errorMessage = errorResponse.getMessage();
+                            showToast(errorMessage);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<StandardResponse> call, Throwable t) {
-                Log.d("BookReservationActivity", "onFailure: " + t.getLocalizedMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<StandardResponse> call, Throwable t) {
+                    Log.d("BookReservationActivity", "onFailure: " + t.getLocalizedMessage());
+                }
+            });
     }
 }

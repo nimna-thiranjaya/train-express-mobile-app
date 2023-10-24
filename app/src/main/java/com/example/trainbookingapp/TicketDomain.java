@@ -10,8 +10,10 @@ public class TicketDomain {
     private String DepTime;
     private String UserNic;
 
+    private String id;
 
-    public TicketDomain(String depStation, String desStation, String seats, String depDate, String UClass, String depTime, String userNic) {
+
+    public TicketDomain(String id,String depStation, String desStation, String seats, String depDate, String UClass, String depTime, String userNic) {
         this.DepStation = depStation;
         this.DesStation = desStation;
         this.Seats = seats;
@@ -19,8 +21,17 @@ public class TicketDomain {
         this.UClass = UClass;
         this.DepTime = depTime;
         this.UserNic = userNic;
+        this.id = id;
+
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getDepStation() {
         return DepStation;

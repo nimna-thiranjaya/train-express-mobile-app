@@ -14,12 +14,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.trainbookingapp.db.DatabaseHelper;
 import com.example.trainbookingapp.model.response.ErrorResponse;
 import com.example.trainbookingapp.model.response.ScheduleDataResponse;
 import com.example.trainbookingapp.model.response.ScheduleResponse;
 import com.example.trainbookingapp.model.response.StandardResponse;
+import com.example.trainbookingapp.model.response.UserResponse;
+import com.example.trainbookingapp.network.ApiService;
 import com.example.trainbookingapp.network.RetrofitClient;
 import com.example.trainbookingapp.network.ScheduleApiService;
 import com.google.gson.Gson;
@@ -38,8 +42,11 @@ public class TrainFragment extends Fragment {
     private RecyclerView recyclerView;
     private MostViewAdapter mostViewAdapter;
     private EditText search_text;
+
+    private TextView textView5;
    private List<MostViewedDomain> mostViewedDomains;
 
+   private DatabaseHelper databaseHelper;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +55,7 @@ public class TrainFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.viewMostView);
         search_text = (EditText) view.findViewById(R.id.search_text);
+        textView5 = (TextView) view.findViewById(R.id.textView5);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -57,6 +65,9 @@ public class TrainFragment extends Fragment {
         recyclerView.setAdapter(mostViewAdapter);
 
         fetchDataFromApi();
+
+        fetchTravelerData();
+
 
         search_text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -152,5 +163,44 @@ public class TrainFragment extends Fragment {
         // Update the RecyclerView with the filtered data
         adapter = new MostViewAdapter(filteredList);
         recyclerView.setAdapter(adapter);
+    }
+
+    private void fetchTravelerData() {
+        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
+
+        databaseHelper = new DatabaseHelper(getContext());
+        String id = databaseHelper.getAllTravelerData();
+
+        Call<StandardResponse<UserResponse>> call = apiService.getTravelerById(id);
+
+        call.enqueue(new Callback<StandardResponse<UserResponse>>() {
+            @Override
+            public void onResponse(Call<StandardResponse<UserResponse>> call, Response<StandardResponse<UserResponse>> response) {
+                if (response.isSuccessful()) {
+                    StandardResponse<UserResponse> loginResponse = response.body();
+                    if(loginResponse.getData() != null){
+                        UserResponse userResponse = loginResponse.getData();
+                        textView5.setText("Hi " + userResponse.getFirstName());
+                    }else{
+                        showToast("No data found");
+                    }
+                } else {
+                    try {
+                        Gson gson = new Gson();
+                        ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
+                        String errorMessage = errorResponse.getMessage();
+                        showToast(errorMessage);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StandardResponse<UserResponse>> call, Throwable t) {
+                Log.d("ProfileFragment", "Error: " + t.getMessage());
+            }
+        });
     }
 }

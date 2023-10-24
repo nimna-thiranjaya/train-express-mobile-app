@@ -12,12 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.trainbookingapp.db.DatabaseHelper;
 import com.example.trainbookingapp.model.response.ErrorResponse;
 import com.example.trainbookingapp.model.response.GetReservationResponse;
 import com.example.trainbookingapp.model.response.StandardResponse;
+import com.example.trainbookingapp.model.response.UserResponse;
+import com.example.trainbookingapp.network.ApiService;
 import com.example.trainbookingapp.network.ReservationApiService;
 import com.example.trainbookingapp.network.RetrofitClient;
 import com.example.trainbookingapp.network.ScheduleApiService;
@@ -43,6 +46,8 @@ public class TicketFragment extends Fragment {
 
     private List<TicketDomain> ticketDomains;
 
+    private TextView textView5;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,8 +59,10 @@ public class TicketFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         search_text = view.findViewById(R.id.search_text);
+        textView5 = view.findViewById(R.id.textView5);
         ticketAdapter = new TicketAdapter(new ArrayList<>());
         recyclerView.setAdapter(ticketAdapter);
+        fetchTravelerData();
 
         fetchDataFromApi();
 
@@ -131,6 +138,7 @@ public class TicketFragment extends Fragment {
         for(GetReservationResponse getReservationResponses : getReservationResponse){
             String depTime = getReservationResponses.getScheduleWithTrainDetailsResponse().getScheduleResponse().getDepartureDate().split("T")[1];
             TicketDomain ticketDomain = new TicketDomain(
+                    getReservationResponses.getReservationResponse().getId(),
                     getReservationResponses.getReservationResponse().getDepartureStation(),
                     getReservationResponses.getReservationResponse().getDestinationStation(),
                     String.valueOf(getReservationResponses.getReservationResponse().getSeatCount()),
@@ -156,5 +164,44 @@ public class TicketFragment extends Fragment {
         // Update the RecyclerView with the filtered data
         adapter = new TicketAdapter(filteredList);
         recyclerView.setAdapter(adapter);
+    }
+    private void fetchTravelerData() {
+        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
+
+        databaseHelper = new DatabaseHelper(getContext());
+        String id = databaseHelper.getAllTravelerData();
+
+        Call<StandardResponse<UserResponse>> call = apiService.getTravelerById(id);
+
+        call.enqueue(new Callback<StandardResponse<UserResponse>>() {
+            @Override
+            public void onResponse(Call<StandardResponse<UserResponse>> call, Response<StandardResponse<UserResponse>> response) {
+                if (response.isSuccessful()) {
+                    StandardResponse<UserResponse> loginResponse = response.body();
+                    if(loginResponse.getData() != null){
+                        UserResponse userResponse = loginResponse.getData();
+//                        userName.setText(userResponse.getFirstName() + " " + userResponse.getLastName());
+                            textView5.setText("Hi " + userResponse.getFirstName());
+                    }else{
+                        showToast("No data found");
+                    }
+                } else {
+                    try {
+                        Gson gson = new Gson();
+                        ErrorResponse errorResponse = gson.fromJson(response.errorBody().string(), ErrorResponse.class);
+                        String errorMessage = errorResponse.getMessage();
+                        showToast(errorMessage);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StandardResponse<UserResponse>> call, Throwable t) {
+                Log.d("ProfileFragment", "Error: " + t.getMessage());
+            }
+        });
     }
 }

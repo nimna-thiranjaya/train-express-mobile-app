@@ -193,6 +193,13 @@ public class EditReservationActivity extends AppCompatActivity {
             isValidate = true;
         }
 
+        //email validation
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            email_edit.setError("Enter a valid email");
+            email_edit.requestFocus();
+            isValidate = true;
+        }
+
         if (mobile.isEmpty()) {
             number_edit.setError("Mobile is required");
             number_edit.requestFocus();

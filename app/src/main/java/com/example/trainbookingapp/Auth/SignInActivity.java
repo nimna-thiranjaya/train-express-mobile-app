@@ -90,8 +90,20 @@ public class SignInActivity extends AppCompatActivity {
             check = true;
         }
 
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            this.email.setError("Please enter a valid email address");
+            this.email.requestFocus();
+            check = true;
+        }
+
         if (mobile.isEmpty()) {
             phone_number.setError("Mobile number is required");
+            phone_number.requestFocus();
+            check = true;
+        }
+
+        if (mobile.length() != 10) {
+            phone_number.setError("Mobile number should be 10 digits");
             phone_number.requestFocus();
             check = true;
         }
@@ -125,7 +137,7 @@ public class SignInActivity extends AppCompatActivity {
             return;
         } else {
             ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
-            SignUpRequest signUpRequest = new SignUpRequest(nic, firstName, lastName, "", password, email, mobile, "Sri Lankan", true, "User");
+            SignUpRequest signUpRequest = new SignUpRequest(nic, firstName, lastName, "", password, email, mobile, "Sri Lankan", true, "Traveller");
 
             Call<StandardResponse<SignUpResponse>> call = apiService.signUp(signUpRequest);
 
