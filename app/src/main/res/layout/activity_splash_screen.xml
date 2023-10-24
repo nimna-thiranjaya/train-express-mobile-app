@@ -61,19 +61,23 @@
                     android:background="@drawable/orange_background"
                     android:elevation="3dp">
 
+
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="267dp"
                         android:layout_height="45dp"
-                        android:drawableEnd="@drawable/btn_arrow2"
+                        android:drawableEnd="@drawable/baseline_keyboard_arrow_right_24"
                         android:text="Let's get Started"
                         android:textColor="#8f64e4"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </ScrollView>
