@@ -9,13 +9,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_background" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/newbacks" />
 
     <TextView
         android:id="@+id/textView3"
@@ -33,7 +36,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="180dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +59,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTe5"
+                android:id="@+id/first_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
@@ -79,7 +82,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText4"
+                android:id="@+id/last_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
@@ -102,7 +105,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText3"
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
@@ -125,7 +128,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
@@ -148,7 +151,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/nic"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
@@ -160,47 +163,47 @@
                 android:textColor="#707070"
                 android:textSize="18sp" />
 
+<!--            <TextView-->
+<!--                android:id="@+id/textView4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:text="Profile Picture"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/profile"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:layout_marginTop="12dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/edittext_background"-->
+<!--                    android:ems="10"-->
+<!--                    android:hint="image"-->
+<!--                    android:inputType="text"-->
+<!--                    android:padding="12dp"-->
+<!--                    android:textColor="#707070"-->
+<!--                    android:textSize="18sp" />-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/button4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginStart="32dp"-->
+<!--                    android:background="@drawable/background_btn"-->
+<!--                    android:text="Pick Image" />-->
+<!--            </LinearLayout>-->
+
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Profile Picture"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/edittext_background"
-                    android:ems="10"
-                    android:hint="image"
-                    android:inputType="text"
-                    android:padding="12dp"
-                    android:textColor="#707070"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="32dp"
-                    android:text="Pick Image" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/password"
+                android:id="@+id/password_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -210,7 +213,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
@@ -223,7 +226,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/password2"
+                android:id="@+id/editTextPassword2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -233,7 +236,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextPassword2"
+                android:id="@+id/confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
@@ -246,12 +249,12 @@
                 android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button"
+                android:id="@+id/signUpButton"
                 style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/loginbutton_background"
+                android:background="@drawable/background_btn"
                 android:text="SignUP"
                 android:textColor="#ffffff"
                 android:textSize="25sp"

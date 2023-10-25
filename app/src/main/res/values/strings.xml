@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">Express Bookings</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+<string name="app_name">Train Reservation System</string>
+<string-array name="seat_categories">
+    <item>Select Seat Type</item>
+    <item>ThirdClass</item>
+    <item>SecondClass</item>
+    <item>FirstClass</item>
+    <item>VIPClass</item>
+</string-array>
 </resources>
+
+
+    <!--<resources>-->
+    <!--    <string name="app_name">Express Bookings</string>-->
+    <!--    &lt;!&ndash; TODO: Remove or change this placeholder text &ndash;&gt;-->
+    <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <!--</resources>-->

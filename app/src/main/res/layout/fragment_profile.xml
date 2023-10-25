@@ -18,13 +18,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="933dp">
 
                 <View
                     android:id="@+id/view3"
                     android:layout_width="wrap_content"
                     android:layout_height="360dp"
-                    android:background="@drawable/top_backgroud"
+                    android:background="@drawable/reser_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -43,15 +43,14 @@
                     android:id="@+id/imageView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.085"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="150dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/view3"
                     app:srcCompat="@drawable/profile" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/nameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -71,11 +70,12 @@
                     android:textColor="#fff"
                     android:textSize="18sp"
 
-                    app:layout_constraintEnd_toEndOf="@+id/textView13"
-                    app:layout_constraintStart_toStartOf="@+id/textView13"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                    app:layout_constraintEnd_toEndOf="@+id/nameTextView"
+                    app:layout_constraintStart_toStartOf="@+id/nameTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -242,17 +242,17 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="First Name"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/textView15"
+                            android:id="@+id/firstNameTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Nimna"
+                            android:text="Nimna gg"
                             android:textAlignment="textEnd"
                             android:textColor="#5d5d5d"
                             android:textSize="16sp"
@@ -285,13 +285,13 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Last Name"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/text_last"
+                            android:id="@+id/lastNameTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -323,12 +323,12 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/field_mobile"
+                            android:id="@+id/mobileTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Mobile"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
@@ -371,13 +371,13 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="NIC"
-                            android:textColor="#0F7015"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/text_nic"
+                            android:id="@+id/nicTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -409,18 +409,18 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/field_name_1"
+                            android:id="@+id/text_role"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Role"
-                            android:textColor="#0F7015"
+                            android:text="Nationality"
+                            android:textColor="@color/ravis_perple"
                             android:textSize="18sp"
 
                             />
 
                         <TextView
-                            android:id="@+id/text_role"
+                            android:id="@+id/roleTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -434,9 +434,55 @@
 
                 </LinearLayout>
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/deActiveBtn"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/deact_btn_style"
+                    android:text="Deactive"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/editButton"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/edit_btn_style"
+                    android:text="Edit"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/deActiveBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/LogoutBtn"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/logout_stylebtn"
+                    android:text="Log Out"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
 <!--                android:id="@+id/button5"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="50dp"-->
